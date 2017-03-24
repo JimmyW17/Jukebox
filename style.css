@@ -1,0 +1,34 @@
+#controls {
+  border: 5px solid black;
+  padding: 10px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+#playlist li {
+  width: fit-content;
+}
+
+#play, #pause, #next, #previous, #shuffle {
+  font-size: 50px;
+  margin-right: 15px;
+}
+
+#playlist-container {
+  position: relative;
+  float: right;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  width: 50%;
+}
+
+#addAudio {
+  position: relative;
+  clear: left;
+}
+
+#addAudio {
+  padding-left: 20px;
+}

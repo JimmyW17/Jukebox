@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.2/wavesurfer.min.js"></script>
+</head>
+<body>
+  <audio id="jukebox">
+    <source src="" type="audio/mpeg">
+    </audio>
+
+    <div id="controls">
+      <i class="fa fa-step-backward" aria-hidden="true" id="previous"></i>
+      <i class="fa fa-random" aria-hidden="true" id="shuffle"></i>
+      <i class="fa fa-play-circle" aria-hidden="true" id="play"></i>
+      <i class="fa fa-pause-circle-o" aria-hidden="true" id="pause"></i>
+      <i class="fa fa-step-forward" aria-hidden="true" id="next"></i>
+      <input type="range" onchange="setVolume();" id='volume1' min=0 max=1 step=0.01 value="1l">
+      <h3><span id="audioCurrent">00:00</span> - <span id="audioLength">00:00</span></h3>
+      <h2> <span id="mp3src">Now playing:</span></h2>
+    </div>
+
+    <div id="playlist-container">
+      <h2>Playlist:</h2>
+      <ol id="playlist">
+      </ol>
+    </div>
+
+    <div id="addAudio">
+      <!-- NOT IMPLEMENTED @@@@@@@@@@@@@@@@@@@@@@@ -->
+      <h2>Add music to Playlist:</h2>
+      <p>Example mp3 links for testing: <a href="http://www.download2mp3.com/beethoven.htm">Beethoven</a></p>
+      <form onsubmit="formReset(); event.preventDefault();" action='index.html' method="post" id="audioForm">
+        <!-- line above, action='javascript:void(0);' makes it so that page doesn't reload on submit -->
+        Audio Source: <input type="text" name="Audio Source" id="audioInput"><br>
+        Audio Name: <input type="text" name="Audio Name" id="audioName"><br>
+        <input type="submit" name="" value="Add" id="addButton">
+      </form>
+    </div>
+
+    <div id="waveform">
+
+    </div>
+
+    <script src="script.js" charset="utf-8"></script>
+    <script src="https://use.fontawesome.com/61ae56f9bc.js"></script>
+
+    <!-- Soundclout api -->
+    <!-- <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+    <script>
+    SC.initialize({
+      client_id: 'YOUR_CLIENT_ID',
+      redirect_uri: 'http://example.com/callback'
+    });
+
+    // initiate auth popup
+    SC.connect().then(function() {
+      return SC.get('/me');
+    }).then(function(me) {
+      alert('Hello, ' + me.username);
+    });
+    </script> -->
+  </body>
+  </html>
