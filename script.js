@@ -16,14 +16,15 @@ function Jukebox(){
   this.currentSongTime = 0;
 }
 
-Jukebox.prototype.addSong = function(song, name) {
-  this.songs.push(song);
-  this.songsName.push(name);
+Jukebox.prototype.addSong = function(song) {
+  this.songs.push(song.audiosrc);
+  this.songsName.push(song.name);
 }
 
 Jukebox.prototype.play = function(){
+  // Checks for first time play
   if(jukebox.currentTime == 0){
-    jukebox.src = this.songs[this.songNum].audiosrc;
+    jukebox.src = this.songs[this.songNum];
   }
   console.log(this.songs[this.songNum]);
   jukebox.play();
@@ -31,11 +32,13 @@ Jukebox.prototype.play = function(){
 
 Jukebox.prototype.pause = function() {
   jukebox.pause();
+  // remember pause time for resuming
   this.currentSongTime = jukebox.currentTime;
   console.log(this.currentSongTime);
 }
 
 Jukebox.prototype.next = function() {
+  // checks if current song is last song
   if(this.songNum == this.songs.length-1) {
     this.songNum = 0;
   } else {
@@ -59,17 +62,17 @@ Jukebox.prototype.shuffle = function() {
   jukebox.currentTime = 0;
 }
 
-var song1 = new Song('audio/BeethovenMoonlight1.mp3');
-var song2 = new Song('audio/Bagatelle1.mp3');
-var song3 = new Song('audio/Emperor.mp3');
-var song4 = new Song('audio/BeethovenRondo51_1.mp3');
-var song5 = new Song('http://www.download2mp3.com/beethoven_htm_files/BeethovenPeasantDance.mp3');
+var song1 = new Song('audio/BeethovenMoonlight1.mp3', 'Beethoven Moonlight 1');
+var song2 = new Song('audio/Bagatelle1.mp3', 'Bagatelle No1');
+var song3 = new Song('audio/Emperor.mp3', 'Emperor');
+var song4 = new Song('audio/BeethovenRondo51_1.mp3', 'Beethoven Rondo OP51:1');
+var song5 = new Song('http://www.download2mp3.com/beethoven_htm_files/BeethovenPeasantDance.mp3', 'Beethoven Peasant Dance');
 var theJukebox = new Jukebox();
-theJukebox.addSong(song1, 'Beethoven Moonlight 1');
-theJukebox.addSong(song2, 'Bagatelle No1');
-theJukebox.addSong(song3, 'Emperor');
-theJukebox.addSong(song4, 'Beethoven Rondo OP51:1');
-theJukebox.addSong(song5, 'Beethoven Peasant Dance');
+theJukebox.addSong(song1);
+theJukebox.addSong(song2);
+theJukebox.addSong(song3);
+theJukebox.addSong(song4);
+theJukebox.addSong(song5);
 
 var jukebox = document.getElementById('jukebox');
 var play = document.getElementById('play');
@@ -140,7 +143,6 @@ shuffle.addEventListener('click', function() {
   playlistHighlight();
   play.style.textShadow = '1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue';
   pause.style.textShadow = 'none';
-  wavesurfer.load('theJukebox.songs[theJukebox.songNum].audiosrc');
 })
 
 function setVolume() {
@@ -236,7 +238,4 @@ addButton.addEventListener('click', function(event) {
   playlist.appendChild(node);
 })
 
-// var node = document.createElement('li');
-// var textnode = document.createTextNode(theJukebox.songs[x].audiosrc);
-// node.appendChild(textnode);
-// playlist.appendChild(node);
+// VISUALIZER JS

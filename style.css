@@ -1,3 +1,7 @@
+body {
+  font-family: 'Merriweather', serif;
+}
+
 #controls {
   border: 5px solid black;
   padding: 10px;
@@ -8,6 +12,7 @@
 
 #playlist li {
   width: fit-content;
+  margin-top: 5px;
 }
 
 #play, #pause, #next, #previous, #shuffle {
@@ -20,7 +25,7 @@
   float: right;
   background-color: black;
   color: white;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   width: 50%;
 }
 
@@ -32,3 +37,5 @@
 #addAudio {
   padding-left: 20px;
 }
+
+/* VISUALIZER CSS */
