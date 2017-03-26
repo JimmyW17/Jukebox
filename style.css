@@ -1,12 +1,21 @@
 body {
   font-family: 'Merriweather', serif;
+  color: white;
+  background: radial-gradient(ellipse at center, #000000 44%, #222222 100%);
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+html, body {
+  height: 100%;
 }
 
 #controls {
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   padding: 10px;
   text-align: center;
-  background-color: black;
+  /*background-color: black;*/
   color: white;
 }
 
@@ -23,7 +32,7 @@ body {
 #playlist-container {
   position: relative;
   float: right;
-  background-color: black;
+  /*background-color: black;*/
   color: white;
   padding: 0px 20px 20px 20px;
   width: 50%;
