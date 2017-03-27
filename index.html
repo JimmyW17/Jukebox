@@ -23,23 +23,25 @@
       <h3><span id="audioCurrent">00:00</span> - <span id="audioLength">00:00</span></h3>
     </div>
     <div id="playlist-container">
+      <div id="addAudio">
+        <h2>Add:</h2>
+        <p>Example mp3 links for testing: <a href="http://www.download2mp3.com/beethoven.htm">Beethoven</a></p>
+        <form onsubmit="formReset(); event.preventDefault();" action='index.html' method="post" id="audioForm">
+          <!-- line above, action='javascript:void(0);' makes it so that page doesn't reload on submit -->
+          Audio Source: <input type="text" name="Audio Source" id="audioInput" ><br>
+          Audio Name: <input type="text" name="Audio Name" id="audioName"><br>
+          <input type="submit" name="" value="Add" id="addButton"><br>
+          <!-- <input type="file" name="Upload" value="" id="upload"> -->
+        </form>
+      </div>
       <h2>Playlist:</h2>
       <ol id="playlist">
       </ol>
     </div>
 
-    <a href="#" id="playlistIcon"><i class="fa fa-chevron-left" aria-hidden="true" ></i></a>
-    <div id="addAudio">
-      <h2>Add music to Playlist:</h2>
-      <p>Example mp3 links for testing: <a href="http://www.download2mp3.com/beethoven.htm">Beethoven</a></p>
-      <form onsubmit="formReset(); event.preventDefault();" action='index.html' method="post" id="audioForm">
-        <!-- line above, action='javascript:void(0);' makes it so that page doesn't reload on submit -->
-        Audio Source: <input type="text" name="Audio Source" id="audioInput" ><br>
-        Audio Name: <input type="text" name="Audio Name" id="audioName"><br>
-        <input type="submit" name="" value="Add" id="addButton"><br>
-        <!-- <input type="file" name="Upload" value="" id="upload"> -->
-      </form>
-    </div>
+    <a href="#" id="iconLeft"><i class="fa fa-chevron-left" aria-hidden="true" ></i></a>
+    <a href="#" id="iconRight"><i class="fa fa-chevron-right" aria-hidden="true" ></i></a>
+
 
     <!-- Visualizer -->
 

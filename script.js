@@ -86,7 +86,8 @@ var nowplaying = document.getElementById('mp3src');
 var playlistContainer = document.querySelector('#playlist-container');
 var playlist = document.getElementById('playlist');
 var playlistArr = playlist.getElementsByTagName('li');
-var playlistIcon = document.querySelector('#playlistIcon');
+var iconLeft = document.querySelector('#iconLeft');
+var iconRight = document.querySelector('#iconRight');
 
 // Controls event handlers
 jukebox.addEventListener('ended', function() {
@@ -101,15 +102,15 @@ play.addEventListener('click', function() {
   theJukebox.play();
   nowPlaying();
   playlistHighlight();
-  play.style.textShadow = '1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue';
-  pause.style.textShadow = 'none';
+  play.style.color = 'rgb(255, 246, 18)';
+  pause.style.color = 'white';
 });
 
 pause.addEventListener('click', function() {
   // Pause button onclick
   theJukebox.pause();
-  pause.style.textShadow = '1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue';
-  play.style.textShadow = 'none';
+  pause.style.color = 'rgb(255, 246, 18)';
+  play.style.color = 'white';
 })
 
 next.addEventListener('click', function() {
@@ -118,8 +119,8 @@ next.addEventListener('click', function() {
   theJukebox.play();
   nowPlaying();
   playlistHighlight();
-  play.style.textShadow = '1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue';
-  pause.style.textShadow = 'none';
+  play.style.color = 'rgb(255, 246, 18)';
+  pause.style.color = 'white';
 })
 
 previous.addEventListener('click', function() {
@@ -127,8 +128,8 @@ previous.addEventListener('click', function() {
   theJukebox.play();
   nowPlaying();
   playlistHighlight();
-  play.style.textShadow = '1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue';
-  pause.style.textShadow = 'none';
+  play.style.color = 'rgb(255, 246, 18)';
+  pause.style.color = 'white';
 })
 
 shuffle.addEventListener('click', function() {
@@ -143,8 +144,8 @@ shuffle.addEventListener('click', function() {
   theJukebox.play();
   nowPlaying();
   playlistHighlight();
-  play.style.textShadow = '1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue';
-  pause.style.textShadow = 'none';
+  play.style.color = 'rgb(255, 246, 18)';
+  pause.style.color = 'white';
 })
 
 function setVolume() {
@@ -204,28 +205,27 @@ function getPlaylist() {
 function playlistHighlight() {
   for(x=0; x<theJukebox.songs.length; x++){
     if(x != theJukebox.songNum){
-      playlistArr[x].style.textShadow = 'none';
-      playlistArr[theJukebox.songNum].style.fontWeight = 'normal';
+      playlistArr[x].style.color = 'white';
+      playlistArr[x].style.fontWeight = 'normal';
     }
   }
-  playlistArr[theJukebox.songNum].style.textShadow = '1px 1px 2px blue';
+  playlistArr[theJukebox.songNum].style.color = 'rgb(255, 246, 18)';
   playlistArr[theJukebox.songNum].style.fontWeight = 'bolder';
 
 }
 
 getPlaylist();
 
-var playlistHidden = true;
-playlistIcon.addEventListener('click', function() {
-  if(playlistHidden == true) {
-    playlistHidden = false;
-    playlistContainer.style.right = '-400px';
-    playlistIcon.className = "fa fa-chevron-right";
-  } else {
-    playlistHidden = true;
-    playlistContainer.style.right = '0px';
-    playlistIcon.className = "fa fa-chevron-left";
-  }
+iconLeft.addEventListener('click', function() {
+  iconLeft.style.display = 'none';
+  iconRight.style.display = 'inline-block';
+  playlistContainer.style.right = '0px';
+})
+
+iconRight.addEventListener('click', function() {
+  iconRight.style.display = 'none';
+  iconLeft.style.display = 'inline-block';
+  playlistContainer.style.right = '-400px';
 })
 
 // Adding audio form stuff
