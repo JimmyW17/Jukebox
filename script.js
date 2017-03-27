@@ -83,8 +83,10 @@ var shuffle = document.getElementById('shuffle');
 var audioCurrent = document.getElementById('audioCurrent');
 var audioLength = document.getElementById('audioLength');
 var nowplaying = document.getElementById('mp3src');
+var playlistContainer = document.querySelector('#playlist-container');
 var playlist = document.getElementById('playlist');
 var playlistArr = playlist.getElementsByTagName('li');
+var playlistIcon = document.querySelector('#playlistIcon');
 
 // Controls event handlers
 jukebox.addEventListener('ended', function() {
@@ -212,6 +214,19 @@ function playlistHighlight() {
 }
 
 getPlaylist();
+
+var playlistHidden = true;
+playlistIcon.addEventListener('click', function() {
+  if(playlistHidden == true) {
+    playlistHidden = false;
+    playlistContainer.style.right = '-400px';
+    playlistIcon.className = "fa fa-chevron-right";
+  } else {
+    playlistHidden = true;
+    playlistContainer.style.right = '0px';
+    playlistIcon.className = "fa fa-chevron-left";
+  }
+})
 
 // Adding audio form stuff
 

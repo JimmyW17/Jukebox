@@ -13,6 +13,7 @@
     <source src="" type="audio/mpeg">
     </audio>
     <div id="controls">
+      <h2> <span id="mp3src">. . .</span></h2>
       <i class="fa fa-step-backward" aria-hidden="true" id="previous"></i>
       <i class="fa fa-random" aria-hidden="true" id="shuffle"></i>
       <i class="fa fa-play-circle" aria-hidden="true" id="play"></i>
@@ -20,7 +21,6 @@
       <i class="fa fa-step-forward" aria-hidden="true" id="next"></i>
       <input type="range" onchange="setVolume();" id='volume1' min=0 max=1 step=0.01 value="1l">
       <h3><span id="audioCurrent">00:00</span> - <span id="audioLength">00:00</span></h3>
-      <h2> <span id="mp3src">. . .</span></h2>
     </div>
     <div id="playlist-container">
       <h2>Playlist:</h2>
@@ -28,6 +28,7 @@
       </ol>
     </div>
 
+    <a href="#" id="playlistIcon"><i class="fa fa-chevron-left" aria-hidden="true" ></i></a>
     <div id="addAudio">
       <h2>Add music to Playlist:</h2>
       <p>Example mp3 links for testing: <a href="http://www.download2mp3.com/beethoven.htm">Beethoven</a></p>
@@ -41,7 +42,7 @@
     </div>
 
     <!-- Visualizer -->
-    
+
     <script src="script.js" charset="utf-8"></script>
     <script src="https://use.fontawesome.com/61ae56f9bc.js"></script>
   </body>
